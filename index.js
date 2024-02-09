@@ -1,7 +1,7 @@
 let editId = null;
 let users = [];
-const port = 4000;
-const host = `http://127.0.0.1:${port}`;
+let port = localStorage.getItem('port') || 4000;
+const ip = 'http://127.0.0.1';
 
 init();
 
@@ -9,11 +9,30 @@ function init() {
     getUsers();
     document.addEventListener('DOMContentLoaded', () => {
         document.forms[0].elements.username.focus();
+        document.querySelector('.port-value').textContent = port;
     });
 }
 
+function getHost() {
+    return `${ip}:${port}`;
+}
+
+function setPort(event) {
+    event.preventDefault();
+    const oldPort = port;
+    port = +prompt('Enter port', port);
+    if (!(Number.isInteger(port) && port > 0 && port < 65535)) {
+        port = oldPort;
+        alert('Wrong port value');
+        return;
+    }
+    localStorage.setItem('port', port);
+    document.querySelector('.port-value').textContent = port;
+    getUsers();
+}
+
 async function getUsers() {
-    const url = new URL('api/users', host);
+    const url = new URL('api/users', getHost());
     let response;
     try {
         response = await fetch(url.toString());
@@ -40,7 +59,7 @@ async function getUser(event) {
     if (!id) {
         return;
     }
-    const url = new URL(`api/users/${id}`, host);
+    const url = new URL(`api/users/${id}`, getHost());
     let response;
     try {
         response = await fetch(url.toString());
@@ -113,7 +132,7 @@ async function deleteUser(event) {
     if (!id) {
         return;
     }
-    const url = new URL(`api/users/${id}`, host);
+    const url = new URL(`api/users/${id}`, getHost());
     let response;
     try {
         response = await fetch(url.toString(), { 
@@ -186,7 +205,7 @@ async function save(event) {
         age,
         hobbies
     }
-    const url = new URL(`api/users${editId ? '/' + editId : '' }`, host);
+    const url = new URL(`api/users${editId ? '/' + editId : '' }`, getHost());
     let response;
     try {
         response = await fetch(url.toString(), {

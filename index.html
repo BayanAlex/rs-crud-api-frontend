@@ -10,6 +10,10 @@
 <body>
     <div class="wrap">
         <form class="user-edit" onsubmit="save(event)">
+            <div class="port">
+                <h3>Port: <span class="port-value"></span></h3>
+                <button onclick="setPort(event)">Set</button>
+            </div>
             <label>
                 Name
                 <input type="text" id="username" name="username">
