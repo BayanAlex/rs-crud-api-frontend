@@ -1,0 +1,86 @@
+.wrap {
+    display: flex;
+    gap: 30px;
+}
+
+h1 {
+    margin: 0 0 10px;
+    text-align: center;
+}
+
+.user-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 47px;
+}
+
+.user-edit input[type="text"] {
+    width: 170px;
+}
+
+.user-edit .hobbies-list input[type="text"] {
+    width: calc(100% - 8px);
+}
+
+.user-edit > label {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.users-list-wrap {
+    min-width: 332px;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.users-list .user-item {
+    padding: 10px;
+    background-color: rgb(246, 249, 255);
+    border-radius: 5px;
+    border: 1px solid rgb(227, 235, 250);
+}
+
+.users-list .user-item span {
+    font-weight: 600;
+}
+
+.hobby {
+    display: flex;
+    gap: 5px;
+}
+
+.hobbies-list, .hobbies-list-wrap, .hobbies-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button {
+    width: 100px;
+}
+
+.action-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    width: 100%;
+}
+
+.action-buttons .button, .hobbies-block .button {
+    width: 100%;
+}
+
+.user-buttons {
+    margin-top: 5px;
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD API Test</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <form class="user-edit" onsubmit="save(event)">
+            <label>
+                Name
+                <input type="text" id="username" name="username">
+            </label>
+            <label>
+                Age
+                <input type="text" id="age" name="age">
+            </label>
+            <div class="hobbies-block">
+                <div>Hobbies</div>
+                <div class="hobbies-list"></div>
+                <button class="button" onclick="addHobby(event)">+ Hobby</button>
+            </div>
+            <div class="action-buttons">
+                <button class="button" onclick="resetForm(event)">Clear</button>
+                <input type="submit" class="button" value="Save">
+            </div>
+        </form>
+        
+        <div class="users-list-wrap">
+            <h1>Users</h1>
+            <div class="users-list"></div>
+        </div>
+    </div>
+</body>
+</html>
