@@ -19,13 +19,16 @@ function getHost() {
 
 function setPort(event) {
     event.preventDefault();
-    const oldPort = port;
-    port = +prompt('Enter port', port);
-    if (!(Number.isInteger(port) && port > 0 && port < 65535)) {
-        port = oldPort;
+    let newPort = prompt('Enter port', port); 
+    if (newPort === null) {
+        return;
+    }
+    newPort = +newPort;
+    if (!(Number.isInteger(newPort) && newPort > 0 && newPort < 65535)) {
         alert('Wrong port value');
         return;
     }
+    port = +newPort;
     localStorage.setItem('port', port);
     document.querySelector('.port-value').textContent = port;
     getUsers();
