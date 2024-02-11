@@ -38,7 +38,7 @@ async function getUsers() {
     const url = new URL('api/users', getHost());
     let response;
     try {
-        response = await fetch(url.toString());
+        response = await fetch(url);
     } catch (error) {
         alert(error.message + ' ' + url.toString());
         return;
@@ -65,7 +65,7 @@ async function getUser(event) {
     const url = new URL(`api/users/${id}`, getHost());
     let response;
     try {
-        response = await fetch(url.toString());
+        response = await fetch(url);
     } catch (error) {
         alert(error.message + ' ' + url.toString());
         return;
@@ -138,7 +138,7 @@ async function deleteUser(event) {
     const url = new URL(`api/users/${id}`, getHost());
     let response;
     try {
-        response = await fetch(url.toString(), { 
+        response = await fetch(url, { 
             method: 'DELETE'
         });
     } catch (error) {
@@ -211,7 +211,7 @@ async function save(event) {
     const url = new URL(`api/users${editId ? '/' + editId : '' }`, getHost());
     let response;
     try {
-        response = await fetch(url.toString(), {
+        response = await fetch(url, {
             method: editId ? 'PUT' : 'POST',
             headers: {
                 'Content-Type': 'application/json'
